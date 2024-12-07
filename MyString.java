@@ -104,7 +104,7 @@ public class MyString {
      */
     public static String randomStringOfLetters(int n) {
         if (n <= 0) {
-            return null;
+            return "";
         }
         String alphabetLetters = "abcdefghijklmnopqrstuvwxyz";
         String randomString = "";
