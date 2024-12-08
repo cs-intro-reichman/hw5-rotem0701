@@ -138,8 +138,7 @@ public class Scrabble {
 		// The variable in is set to represent the stream of characters 
 		// coming from the keyboard. Used for getting the user's inputs.  
 		In in = new In();
-		//String hand = createHand();
-		String hand = "aretiin";
+		String hand = createHand();
 		String prevHand = hand;
 		System.out.println("Enter n to deal a new hand, or e to end the game:");
 		while(true) {
@@ -150,8 +149,7 @@ public class Scrabble {
 				break;
 			}
 			else if (input.equals("n")) {
-				//hand = createHand();
-				hand = "aretiin";
+				hand = createHand();
 				prevHand = hand;
 				playHand(hand);
 				System.out.println("Enter n to deal a new hand, r to replay the last hand, or e to end the game:");
