@@ -4,7 +4,6 @@
 public class MyString {
     public static void main(String args[]) {
         String hello = "hello";
-       /* 
         System.out.println(countChar(hello, 'h')); //1
         System.out.println(countChar(hello, 'l')); // 2
         System.out.println(countChar(hello, 'z')); // 0
@@ -13,13 +12,10 @@ public class MyString {
         System.out.println(subsetOf("spa", "space")); // true 
         System.out.println(subsetOf("pass", "space")); // false 
         System.out.println(subsetOf("c", "space")); // true
-        System.out.println(
-        (hello));
+        System.out.println((hello));
         System.out.println(spacedString(""));
         System.out.println(spacedString("h"));        
         System.out.println(randomStringOfLetters(10));
-
-        */
         
     }
 
