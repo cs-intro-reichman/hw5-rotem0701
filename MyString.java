@@ -13,15 +13,13 @@ public class MyString {
         System.out.println(subsetOf("spa", "space")); // true 
         System.out.println(subsetOf("pass", "space")); // false 
         System.out.println(subsetOf("c", "space")); // true
-        System.out.println(spacedString(hello));
+        System.out.println(
+        (hello));
         System.out.println(spacedString(""));
         System.out.println(spacedString("h"));        
         System.out.println(randomStringOfLetters(10));
 
         */
-        System.out.println(remove("committee", "meet"));
-
-
         
     }
 
@@ -70,6 +68,25 @@ public class MyString {
             }
         }
         return true;
+    }
+
+    /** Returns a string which is the same as the given string, with spaces.
+     * Example: noSpacesString("s i l e n t") returns "silent"
+     * 
+     * @param str - a string
+     * @return a string consisting of the characters of str, without spaces.
+     */
+    public static String noSpacesString(String str) {
+        if ((str.length() == 0) || (str.length() == 1)) {
+            return str;
+        }
+        String newString = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != ' ') {
+            newString+= str.charAt(i);
+            }
+        }
+        return newString;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -128,6 +145,8 @@ public class MyString {
         if (str2.length() == 0) {
             return str1;
         }
+        str1 = noSpacesString(str1);
+        str2 = noSpacesString(str2);
         String newString = str1;
         for (int i = 0; i < str2.length(); i++) {
             char letter = str2.charAt(i);
@@ -140,7 +159,7 @@ public class MyString {
             }
         }
         return newString;
-    }
+    }   
 
     /**
      * Returns a string consisting of the given string, with the given 
