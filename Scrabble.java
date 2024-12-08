@@ -140,7 +140,7 @@ public class Scrabble {
 		In in = new In();
 		String hand = createHand();
 		String prevHand = hand;
-		System.out.println("Enter n to deal a new hand, or e to end the game:");
+		System.out.println("Enter n to deal a new hand, or e to end game:");
 		while(true) {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
@@ -152,11 +152,11 @@ public class Scrabble {
 				hand = createHand();
 				prevHand = hand;
 				playHand(hand);
-				System.out.println("Enter n to deal a new hand, r to replay the last hand, or e to end the game:");
+				System.out.println("Enter n to deal a new hand, r to replay the last hand, or e to end game:");
 			}
 			else if (input.equals("r")) {
 				playHand(prevHand);
-				System.out.println("Enter n to deal a new hand, r to replay the last hand, or e to end the game:");
+				System.out.println("Enter n to deal a new hand, r to replay the last hand, or e to end game:");
 			} else {
 				System.out.println("Invalid command.");
 			}
