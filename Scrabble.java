@@ -54,7 +54,7 @@ public class Scrabble {
 		}
 	}
 		return false;
-	}
+}
 	
 	// Returns the Scrabble score of the given word.
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
@@ -82,7 +82,8 @@ public class Scrabble {
 	// (these two vowels make it easier for the user to construct words)
 	public static String createHand() {
 		String hand = MyString.randomStringOfLetters(HAND_SIZE - 2);
-		hand += "ae";
+		hand = MyString.insertRandomly('a', hand);
+		hand = MyString.insertRandomly('e', hand);
 		return hand;
 	}
 	
@@ -98,15 +99,14 @@ public class Scrabble {
 		In in = new In();
 		while (hand.length() > 0) {
 			System.out.println("Current Hand: " + MyString.spacedString(hand));
-			System.out.println("Enter a word, or '.' to finish the hand:");
+			System.out.println("Enter a word, or '.' to finish playing this hand:");
 			// Reads the next "token" from the keyboard. A token is defined as a string of 
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
 			if (input.equals(".")) {
 				break;
-			}
-			else if (!MyString.subsetOf(input, hand)) {
+			} else if (!MyString.subsetOf(input, hand)) {
 				System.out.println("Invalid word. Try again.");
 				System.out.println("");
 				
@@ -114,7 +114,7 @@ public class Scrabble {
 				hand = MyString.remove(hand, input);
 				int currentWordScore = wordScore(input);
 				score += currentWordScore;
-				System.out.println(input + " earned " + currentWordScore + " points. Total: " + score + " points");
+				System.out.println(input + " earned " + currentWordScore + " points. Score: " + score + " points");
 				System.out.println("");
 
 			} else {
@@ -124,7 +124,7 @@ public class Scrabble {
 			
 		}
 		if (hand.length() == 0) {
-	        System.out.println("Ran out of letters. Total score: " + score + " points.");
+	        System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
 			System.out.println("End of hand. Total score: " + score + " points");
 		}
@@ -138,30 +138,23 @@ public class Scrabble {
 		// The variable in is set to represent the stream of characters 
 		// coming from the keyboard. Used for getting the user's inputs.  
 		In in = new In();
-		String hand = createHand();
-		String prevHand = hand;
-		System.out.println("Enter n to deal a new hand, or e to end game:");
 		while(true) {
+			System.out.println("Enter n to deal a new hand, or e to end the game:");
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
+			//// Replace the following break statement with code
+			//// that completes the game playing loop
 			if (input.equals("e")) {
 				break;
-			}
-			else if (input.equals("n")) {
-				hand = createHand();
-				prevHand = hand;
+			} if (input.equals("n")) {
+				String hand = createHand();
 				playHand(hand);
-				System.out.println("Enter n to deal a new hand, r to replay the last hand, or e to end game:");
-			}
-			else if (input.equals("r")) {
-				playHand(prevHand);
-				System.out.println("Enter n to deal a new hand, r to replay the last hand, or e to end game:");
 			} else {
-				System.out.println("Invalid command.");
+				System.out.println("Invalid input. Please enter 'n' or 'e'.");
 			}
+		}
 	}
-}
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
